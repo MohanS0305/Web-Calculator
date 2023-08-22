@@ -1,0 +1,100 @@
+<!DocType HTML>
+	<head>
+		<title>Web Calculator</title>
+		<style>
+			.Calculator{
+				margin: auto;
+				margin-top: 100px;
+				padding: 10px;
+				border: 2px solid none;
+				box-shadow: 14px 10px hsl(220, 2%, 27%);
+				border-radius: 10px;
+				background-color: rgb(153, 199, 148);
+				height: 350px;
+				width: 300px;
+				max-height: 100%;
+				max-width: 100%;
+
+			}
+			.display-box{
+				font-family: sans-serif;
+				background-color: ;
+				border: 1px solid none;
+				background-color: rgb(244, 164, 83);
+				border-radius: 2px;
+				width: 90%;
+				height: 60%;
+
+			}
+			#btn{
+				background-color: hsl(5, 55%, 52%);
+			}
+			input[type=button]{
+				font-family: Baskerville Old Face;
+				border-radius: 4px;
+				border: 0px solid;
+				background-color: rgb(169, 149, 198);
+				height: 70%;
+				width: 80%;
+			}
+			#operator{
+				background-color: hsl(58, 100%, 54%);
+			}
+			#equalto{
+				background-color: hsl(336, 100%, 46%);
+			}
+			#dot{
+				background-color: hsl(15, 100%, 82%);
+			}
+			body{
+				background-color: hsl(213, 51%, 46%);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<table class='Calculator'>
+		 <tr>
+		 	<td colspan="3"><input type='text' class="display-box" id="result" disabled></td>
+		 	<td><input type="button" value="C" id="btn"onclick="clearscreen()"></td>
+		 </tr>
+		 <tr>
+		 	<td><input type="button" value="1" onclick="display('1')"></td>
+		 	<td><input type="button" value="2" onclick="display('2')"></td>
+		 	<td><input type="button" value="3" onclick="display('3')"></td>
+		 	<td><input id="operator" type="button" value="+" onclick="display('+')"></td>
+		 </tr>
+		 <tr>
+		 	<td><input type="button" value="4" onclick="display('4')"></td>
+		 	<td><input type="button" value="5" onclick="display('5')"></td>
+		 	<td><input type="button" value="6" onclick="display('6')"></td>
+		 	<td><input id="operator" type="button" value="-" onclick="display('-')"></td>
+		 </tr>
+		 <tr>
+		 	<td><input type="button" value="7" onclick="display('7')"></td>
+		 	<td><input type="button" value="8" onclick="display('8')"></td>
+		 	<td><input type="button" value="9" onclick="display('9')"></td>
+		 	<td><input id="operator" type="button" value="*" onclick="display('*')"></td>
+		 </tr>
+		 <tr>
+		 	<td><input type="button" value="0" onclick="display('0')"></td>
+		 	<td><input id="dot" type="button" value="." onclick="display('.')"></td>
+		 	<td><input id="equalto" type="button" value="=" onclick="calculate()"></td>
+		 	<td><input id="operator" type="button" value="/" onclick="display('/')"></td>
+		 </tr>
+		</table>
+		<script>
+			function clearscreen(){
+				document.getElementById('result').value="";
+			}
+			function display(value){
+				document.getElementById("result").value+=value;
+			}
+			function calculate(){
+				var p=document.getElementById("result").value;
+				var q=eval(p);
+				document.getElementById("result").value=q;
+			}
+		</script>
+	</body>
+</HTML>
